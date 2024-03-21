@@ -9,9 +9,10 @@ const useLogout = () => {
 	const logout = async () => {
 		setLoading(true);
 		try {
+			let token = localStorage.getItem("jwt");
 			const res = await fetch("https://chat-app-react-0zo5.onrender.com/api/auth/logout", {
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				headers: { "Content-Type": "application/json" , "jwt" : token},
 			});
 			const data = await res.json();
 			if (data.error) {

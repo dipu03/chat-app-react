@@ -9,10 +9,12 @@ const useSendMessage = () => {
 	const sendMessage = async (message) => {
 		setLoading(true);
 		try {
+			let token = localStorage.getItem("jwt");
 			const res = await fetch(`https://chat-app-react-0zo5.onrender.com/api/messages/send/${selectedConversation._id}`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
+					"jwt" : token
 				},
 				body: JSON.stringify({ message }),
 			});
