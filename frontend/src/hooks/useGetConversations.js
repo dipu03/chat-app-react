@@ -9,7 +9,8 @@ const useGetConversations = () => {
 		const getConversations = async () => {
 			setLoading(true);
 			try {
-				let token = localStorage.getItem("jwt");
+				let token = await localStorage.getItem("jwt");
+				console.log("11111111111111111", token)
 				const res = await fetch("https://chat-app-react-0zo5.onrender.com/api/users", {
 					method: "GET",
 					headers: {
