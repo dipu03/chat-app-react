@@ -5,14 +5,14 @@ import cors from 'cors';
 
 const app = express();
 var corsOptions = {
-	origin: ["https://chat-app-frontend-ny6x.onrender.com", "http://localhost:3000"]
+	origin: ["https://chat-app-frontend-ny6x.onrender.com", "http://localhost:3000", "http://localhost:5173"]
   };
 app.use(cors(corsOptions));
 
 const server = http.createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: ["https://chat-app-frontend-ny6x.onrender.com", "http://localhost:3000"],
+		origin: ["https://chat-app-frontend-ny6x.onrender.com", "http://localhost:3000", "http://localhost:5173"],
 		methods: ["GET", "POST"],
 	},
 });
